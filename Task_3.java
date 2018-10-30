@@ -1,12 +1,16 @@
+
+/*Написать метод преобразования массива любого типа в ArrayList
+  */
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class  Task_3 {
+public class Task_3 {
 	public static <T> List<T> toList(Object[] a) {
 		ArrayList out = new ArrayList<Object>();
 		for (Object o : a) // for any object of Array
-			out.add(o);	   // add to ArrayList
-		
+			out.add(o); // add to ArrayList
+
 		return out;
 	}
 
@@ -16,7 +20,7 @@ public class  Task_3 {
 		System.out.println();
 	}
 
-	public static void main  (String[] args) {
+	public static void main(String[] args) {
 		ArrayList<?> tList = new ArrayList();
 
 		// test for Integers
