@@ -26,7 +26,6 @@ public class Task_7_12 {
 			}
 		}
 		return false;
-
 	}
 
 	public static void main(String[] args) {
