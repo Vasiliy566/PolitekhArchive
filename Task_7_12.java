@@ -1,8 +1,19 @@
+/** 
+ * @author Vasily Isaev
+ * @version 7.20
+*/
+/*
+Task_7_1
+
+Прочитайте файл, содержащий код на языке Java. Определите, какие ключевые слова языка Java это код содержит. Выведите эти слова и их количество в другой файл. Используйте только байтовые потоки ввода-вывода.
+
+Task_7_2
+
+Прочитайте файл, содержащий код на языке Java. Определите, какие ключевые слова языка Java это код содержит. Выведите эти слова и их количество в другой файл. Используйте только символьные потоки ввода-вывода.*/
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
 public class Task_7_12 {
 	// all the keyWords massive in Java
 	final static String[] keyWords = { "abstract", "continue", "for", "new", "switch", "assert", "default", "goto",

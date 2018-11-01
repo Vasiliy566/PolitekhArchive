@@ -1,3 +1,7 @@
+/** 
+ * @author Vasily Isaev
+ * @version 7.20
+*/
 /*
 Task_2
 
@@ -9,6 +13,7 @@ Task_2
 3. Редактировать запись 
 4. Посмотреть все записи 	
 */
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
