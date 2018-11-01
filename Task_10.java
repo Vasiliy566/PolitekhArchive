@@ -95,13 +95,12 @@ public class Task_10 {
 					break;
 				name += strLine.charAt(i);
 			}
-			System.out.println((name) );//+ "|" + price1 + "|" + price2);
-			//if (Integer.valueOf(price(name)) >= Integer.valueOf(price1)
-				//	&& Integer.valueOf(price(name)) <= Integer.valueOf(price2)) {
-				//System.out.println(strLine);
-			}
+			System.out.println((name));// + "|" + price1 + "|" + price2);
+			// if (Integer.valueOf(price(name)) >= Integer.valueOf(price1)
+			// && Integer.valueOf(price(name)) <= Integer.valueOf(price2)) {
+			// System.out.println(strLine);
 		}
-	
+	}
 
 	static String changePrice(String input) {
 		String name = "";
@@ -157,26 +156,22 @@ public class Task_10 {
 			if (isSubstring(input, "цена ")) {
 				System.out.println(price(input.substring(4, input.length())));
 			}
-			if (isSubstring(input, "индекс ")) {
+			else if (isSubstring(input, "индекс ")) {
 				System.out.println(getIndex(input.substring("индекс ".length(), input.length())));
 			}
-			if (isSubstring(input, "изменить ")) {
+			else if (isSubstring(input, "изменить ")) {
 				System.out.println(changePrice(input));
 			}
-			if (isSubstring(input, "диапазон ")) {
+			else if (isSubstring(input, "диапазон ")) {
 				priceRange(input);
-			}
-		}
-
-		try {
-			FileInputStream fstream = new FileInputStream("base.data");
-			BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-			String strLine;
-			while ((strLine = br.readLine()) != null) {
-				System.out.println(strLine);
-			}
-		} catch (IOException e) {
-			System.out.println("Ошибка");
+			}else if (isSubstring(input, "помощь")) {
+				System.out.println("Это база данных магазина мебели \n" + "Доступные комманды :\n");
+				System.out.println("цена имя_товара - узнать цену товара ");
+				System.out.println("изменить имя_товара новая_цена - изменить цену  ");
+				System.out.println("индекс имя_товара - узнать идекс товара");
+				System.out.println("диапазон цена1 цена2 - вывести товары в ценовом диапозоне");
+				System.out.println("выход - выход ");	
+			} else {System.out.println("Такой команды не существует. \nкоманда \"помощь\" выведет доступные команды");}
 		}
 	}
 
