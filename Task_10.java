@@ -1,3 +1,7 @@
+/** 
+ * @author Vasily Isaev
+ * @version 7.20
+*/
 
 /*
  Task_10
