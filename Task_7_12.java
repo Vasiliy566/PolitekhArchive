@@ -47,7 +47,7 @@ public class Task_7_12 {
 		// read by symbols
 		try (FileWriter writer = new FileWriter("out.txt", false)) {
 
-			try (FileReader reader = new FileReader("/home/vasily/workspace/politekEx/src/text.txt"))// посимвольно
+			try (FileReader reader = new FileReader("code.txt"))// посимвольно
 			{
 				char c;
 				String s = "";
