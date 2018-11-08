@@ -1,4 +1,4 @@
 # Isaev Vasily and Maslennikova Alina's labs for assembler, done in 1st sem
-Labs can corrrectly work in BorlandC/VisualStudio/ASMtools
-Most labs maked ass assembley's insert in C++/C code
+Labs can correctly work in BorlandC/VisualStudio as assembley insertions
+Some labs writed on clear assembler, compiled using ASMtool
 using syntaxis - intel
