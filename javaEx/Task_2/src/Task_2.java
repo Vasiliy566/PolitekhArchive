@@ -1,3 +1,4 @@
+
 /** 
  * @author Vasily Isaev
  * @version 7.20
@@ -14,23 +15,23 @@ Task_2
 4. Посмотреть все записи 	
 */
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class NotePadNote { 
+class NotePadNote {
 	Scanner scan = new Scanner(System.in);
 	private String mainInfo;
-
-	NotePadNote(String text) { // constructor
+	// constructor
+	NotePadNote(String text) { 
 		mainInfo = text;
 	}
-
-	void noteEdit() { // shows note and swap it with user's input
-		System.out.println(mainInfo);
+	// shows note and swap it with user's input
+	void noteEdit() { 
+		System.out.println('\"' + mainInfo + '\"' + " - it is note now. \nEnter your text to swap with this note.");
 		mainInfo = scan.nextLine();
 	}
-	String showInf() { // to get access to private field
+	// to get access to private field
+	String showInf() { 
 		return mainInfo;
 	}
 }
@@ -38,29 +39,42 @@ class NotePadNote {
 class NotePad {
 	Scanner scan = new Scanner(System.in);
 	ArrayList<NotePadNote> notes = new ArrayList<NotePadNote>();
-
-	void showNotes() { // show all notes after every method of this class
+	// show all notes after every method of this class
+	void showNotes() {
+		System.out.println("*****NOW IN NOTEPAD*****");
 		for (int i = 0; i < notes.size(); i++) {
 			System.out.print("note " + i + " : ");
 			System.out.println(notes.get(i).showInf());
 		}
+		System.out.println("******NOTES END*********");
 	}
 
-	void noteAdd() { // add note to place 'place' , if place is out of range - add to the end
+	// add note to place 'place' , if place is out of range - add to the end
+	void noteAdd() {
+		System.out.println("enter format: \nnumber_of_place note_text \nexample:\n1 test");
 		int place = scan.nextInt();
-		if (place > notes.size()) 
-		place = notes.size();
+		if (place > notes.size())
+			place = notes.size();
 		NotePadNote inputNote = new NotePadNote(scan.nextLine());
 		notes.add(place, inputNote);
 		showNotes();
 	}
 
 	void noteDelete() {
-		int place = scan.nextInt();
-		notes.remove(place);
 		showNotes();
+		System.out.println("enter number of note to delete this");
+		int place = scan.nextInt();
+		try {
+			notes.remove(place);
+			showNotes();
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
 	}
-	void noteEdit() { // edit note number 'place' to note from console
+
+	// edit note number 'place' to note from console
+	void noteEdit() {
+		System.out.println("enter number of note you want to edit");
 		int place = scan.nextInt();
 		notes.get(place).noteEdit();
 		showNotes();
@@ -70,8 +84,7 @@ class NotePad {
 public class Task_2 {
 
 	public static void main(String[] args) {
-		//some simple tests
-		Scanner scan = new Scanner(System.in);
+		// some simple tests
 		NotePad notePad = new NotePad();
 		notePad.noteAdd();
 		notePad.noteAdd();
@@ -80,7 +93,6 @@ public class Task_2 {
 		notePad.noteAdd();
 		notePad.noteEdit();
 		notePad.showNotes();
-		scan.close();
-		
 	}
 }
+
