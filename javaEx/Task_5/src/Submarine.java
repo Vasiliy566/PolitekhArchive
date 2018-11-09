@@ -10,13 +10,13 @@
  * @author Vasily Isaev
  * @version 7.20
 */
-class Submarine2 {
+public class Submarine {
 	/** place value */
-	int place;
+	public  int place;
 	/** local engine */
-	subEngine Engine = new subEngine();
+	private  subEngine Engine = new subEngine();
 	/** Submarine view string */
-	static String[] body = {
+	private  static String[] body = {
 			"░░░░░░░░░░░░░░░░░░░░▄░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n",
 			"░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n",
 			"░░░░░░░░░░░░░░░░░░░░█░░▄░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n",
@@ -33,9 +33,9 @@ class Submarine2 {
 			"░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░" };
 
 	/** constructor
-	 @see Submarine#Submarine(int)
+	 @see Submarine#Submarine()
 	  */
-	Submarine2() {
+	public Submarine() {
 		place = 0;
 	}
 	/** 
@@ -43,10 +43,10 @@ class Submarine2 {
 	 * @author Vasily Isaev
 	 * @version 1.0
 	*/
-	static class subEngine  {
+	private static class subEngine  {
 		/** function of movin submarinw on the screen
-		 changes value {@link Submarine#place} */
-		void move() throws InterruptedException {
+		 changes value {@link #place} */
+		private void move() throws InterruptedException {
 			for (int k = 0; k < 200; k++) {
 				Thread.sleep(100);
 				for (int j = 0; j < 100; j++) { // Default Height of cmd is 300 and Default width is 80
