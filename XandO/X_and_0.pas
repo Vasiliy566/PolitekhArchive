@@ -1,14 +1,15 @@
-﻿// powered by Andrew
+// powered by Andrew
 // February 4, 2019
 program X_and_0;
 var 
   main: array [1..3,1..3] of integer;
   i : integer; 
   j : integer;
+  b : boolean;
+  x, y : integer;
   procedure showBoard();
 var i,j: integer;
 begin
-
  for i := 1 to 3 do begin
    for j := 1 to 3 do begin
      if (main[i,j] = 0) then
@@ -27,7 +28,6 @@ end;
 // процедура для очистки поля от крестиков и ноликов
 procedure clearBord();
 var 
-  b: integer;
   i : integer; 
   j : integer;
  begin
@@ -55,17 +55,29 @@ if (x = y)then begin
 if((main[1,3] = main[2,2]) and  (main[3,1] = main[1,3]) ) then
    isSomebodyWon := main[1,3];
    end;
-   
 end;
 BEGIN
 
 showBoard;
-doMove(1,1,false);
-doMove(2,2,false);
-doMove(3,3,false);
 
+for i := 1 to 9 do begin 
+read (x,y);
+
+if ( (i mod 2) = 0) then
+	 b := false
+else b := true;
+	
+doMove(x,y,b);
+writeln(isSomebodyWon(x,y));
+if (isSomebodyWon(x,y) = 1) then begin
+writeln ('X - win');
+break;
+end
+else if(isSomebodyWon(x,y) = 2) then  begin
+writeln ('0 - win');
+break;
+end;
 showBoard;
-
-writeln(isSomebodyWon(3,3));
+end;
 
 END.
