@@ -30,7 +30,7 @@ begin
     writeln;
      writeln('------');
     end;
-    for i := 0 to 3 do
+    for i := 0 to 2 do
     writeln;
 end;
 // процедура для очистки поля от крестиков и ноликов
@@ -56,23 +56,33 @@ then main[x,y]:= 2;
 end;
 function isSomebodyWon (x,y : integer):integer;
 begin
-if (x = y)then begin
- if((main[1,1] = main[2,2]) and  (main[1,1] = main[3,3]) ) then
-   isSomebodyWon := main[1,1];
- 
-if((main[1,3] = main[2,2]) and  (main[3,1] = main[1,3]) ) then
-   isSomebodyWon := main[1,3];
-   end;
+// Check on diagonall
+if ((x = y) or (x = 4 - y)) then begin
+if ( (x = 2) and (y = 2)) then
+	if( ((main[1, 1] = main [2, 2]) and (main [1, 1] = main [3 ,3])) 
+	or ( (main[1, 3] = main [2, 2]) and (main [3, 1] = main [3 ,3])) )  then
+	isSomebodyWon := main[2,2]
+else if ( (main[x , y] = main [2 , 2]) and (main [x , y] = main [y , x] )) then
+		isSomebodyWon := main[2,2]
+   end
+   
+else if ((main[x,3] = main[x,2]) and  (main[x,3] = main[x,1]) ) then
+   isSomebodyWon := main[x,1]
+ else if ((main[1,y] = main[2,y]) and  (main[1,y] = main[3,y]) ) then
+   isSomebodyWon := main[1,y]
+   else isSomebodyWon := 0;
 end;
 BEGIN
 
-showBoard;
-
+clearBord;
 writeln('We are glad to see you in our Game!');
 writeln(' Rules to play our game:');
 writeln('1. You should writ coordinates of place you want to do move');
 writeln('2. We play for common X and O rules');
 writeln('GOOD LUCK AND HAVE FUN!');
+for i := 1 to 4 do 
+	writeln();
+	
 for i := 1 to 9 do begin 
 
 
@@ -87,23 +97,23 @@ end;
 
  m:
  read (x,y);
-if ( (not(isFillEmpty(x , y))) or  (x > 3) or (y > 3)) then begin
+if ( not(isFillEmpty(x , y)) or  (x > 3) or (y > 3) ) then begin
 writeln('wrong coordinates, try agin');
 GOTO m;
 end;
 
 	
 doMove(x,y,b);
-writeln(isSomebodyWon(x,y));
 if (isSomebodyWon(x,y) = 1) then begin
 writeln ('X - win');
+showBoard;
 break;
 end
 else if(isSomebodyWon(x,y) = 2) then  begin
 writeln ('0 - win');
+showBoard;
 break;
 end;
 showBoard;
 end;
-
 END.
