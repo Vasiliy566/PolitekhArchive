@@ -1,12 +1,20 @@
 // powered by Andrew
 // February 4, 2019
 program X_and_0;
+LABEL m;
 var 
   main: array [1..3,1..3] of integer;
   i : integer; 
   j : integer;
   b : boolean;
   x, y : integer;
+  function isFillEmpty(x,y : integer): boolean;
+  begin
+  if ( main[x,y] = 0) then
+  isFillEmpty := true
+  else
+  isFillEmpty := false;
+  end;
   procedure showBoard();
 var i,j: integer;
 begin
@@ -60,12 +68,30 @@ BEGIN
 
 showBoard;
 
+writeln('We are glad to see you in our Game!');
+writeln(' Rules to play our game:');
+writeln('1. You should writ coordinates of place you want to do move');
+writeln('2. We play for common X and O rules');
+writeln('GOOD LUCK AND HAVE FUN!');
 for i := 1 to 9 do begin 
-read (x,y);
 
-if ( (i mod 2) = 0) then
-	 b := false
-else b := true;
+
+if ( (i mod 2) = 0) then begin
+	 b := false;
+	 writeln( 'O - move');
+	 end
+else  begin
+b := true;
+writeln(' X - move');
+end;
+
+ m:
+ read (x,y);
+if ( (not(isFillEmpty(x , y))) or  (x > 3) or (y > 3)) then begin
+writeln('wrong coordinates, try agin');
+GOTO m;
+end;
+
 	
 doMove(x,y,b);
 writeln(isSomebodyWon(x,y));
