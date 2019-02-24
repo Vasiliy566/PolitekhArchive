@@ -30,7 +30,7 @@ begin
     writeln;
      writeln('------');
     end;
-    for i := 0 to 2 do
+    for i := 0 to 8 do
     writeln;
 end;
 // процедура для очистки поля от крестиков и ноликов
@@ -56,21 +56,38 @@ then main[x,y]:= 2;
 end;
 function isSomebodyWon (x,y : integer):integer;
 begin
-// Check on diagonall
-if ((x = y) or (x = 4 - y)) then begin
-if ( (x = 2) and (y = 2)) then
-	if( ((main[1, 1] = main [2, 2]) and (main [1, 1] = main [3 ,3])) 
-	or ( (main[1, 3] = main [2, 2]) and (main [3, 1] = main [3 ,3])) )  then
-	isSomebodyWon := main[2,2]
-else if ( (main[x , y] = main [2 , 2]) and (main [x , y] = main [y , x] )) then
-		isSomebodyWon := main[2,2]
-   end
-   
-else if ((main[x,3] = main[x,2]) and  (main[x,3] = main[x,1]) ) then
-   isSomebodyWon := main[x,1]
- else if ((main[1,y] = main[2,y]) and  (main[1,y] = main[3,y]) ) then
-   isSomebodyWon := main[1,y]
-   else isSomebodyWon := 0;
+if ( (main[x][1] = main[x][2]) and (main[x][1] = main[x][3]))then begin
+	isSomebodyWon := main[x][y];
+	exit;
+	end;
+if ((main[1][y] = main[2][y]) and (main[1][y] = main [3][y]))then begin
+	isSomebodyWon := main[x][y];		
+	exit;
+	end;
+if (x = y) then 
+	if ( (main[1][1] = main[2][2]) and (main[1][1] = main [3][3])) then begin
+	isSomebodyWon := main[x][y];
+	exit;
+	end;
+if (x = (4 - y)) then	
+	if ( (main[1][3] = main[2][2]) and (main[1][3] = main [3][1])) then begin
+		isSomebodyWon := main[x][y];
+		exit;
+	end;
+end;
+// DOES NOT WORK
+procedure II(lvl : integer, side: boolean);
+var  x , y : integer;	
+begin
+if (lvl = 1):
+	randomize;
+	x = random(1 , 3);
+	y = random(1 , 3);
+	while ( not(main[x][y] = 0 )) do begin
+	x = random(1 , 3);
+	y = random(1 , 3);
+	end;
+	doMove(x , y) 
 end;
 BEGIN
 
@@ -99,6 +116,7 @@ end;
  read (x,y);
 if ( not(isFillEmpty(x , y)) or  (x > 3) or (y > 3) ) then begin
 writeln('wrong coordinates, try agin');
+showBoard;
 GOTO m;
 end;
 
