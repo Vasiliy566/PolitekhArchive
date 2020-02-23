@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/vasiliyisaev/CLionProjects/untitled3/bus.h
+string
+-
+iostream
+-
+
+/Users/vasiliyisaev/CLionProjects/untitled3/main.cpp
+iostream
+-
+fstream
+-
+algorithm
+-
+vector
+-
+set
+-
+bus.h
+/Users/vasiliyisaev/CLionProjects/untitled3/bus.h
+myList.h
+/Users/vasiliyisaev/CLionProjects/untitled3/myList.h
+
+/Users/vasiliyisaev/CLionProjects/untitled3/myList.h
+cassert
+-
+

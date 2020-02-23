@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaEx2019_1.iml" filepath="$PROJECT_DIR$/JavaEx2019_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex_1/ex_1.iml" filepath="$PROJECT_DIR$/ex_1/ex_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex_3/ex_3.iml" filepath="$PROJECT_DIR$/ex_3/ex_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex_4/ex_4.iml" filepath="$PROJECT_DIR$/ex_4/ex_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex_6/ex_6.iml" filepath="$PROJECT_DIR$/ex_6/ex_6.iml" />
+    </modules>
+  </component>
+</project>
