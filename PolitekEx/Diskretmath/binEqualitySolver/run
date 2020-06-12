@@ -1,0 +1,3 @@
+#!/bin/bash
+javac -d bin ./com.binSolver.politekh/src/binsolv.java 
+java -classpath ./bin binsolv
